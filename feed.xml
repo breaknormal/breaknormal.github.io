@@ -7,6 +7,17 @@
     <atom:link href="//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>DiY Apple Homekit Camera With Raspberry Pi</title>
+        <description>
+          
+          Apple Homekit products can be expensive. Instead, I purchased a tiny Raspberry Pi Zero W with a NoIR Camera for $45, and wanted to turn it into something useful. I decided to try setting it up as a Homekit camera whose feed could be checked from the Apple Home app....
+        </description>
+        <pubDate>Wed, 20 Feb 2019 17:28:51 -0500</pubDate>
+        <link>//2019-02-20-diy-apple-homekit-camera-with-raspberry-pi</link>
+        <guid isPermaLink="true">//2019-02-20-diy-apple-homekit-camera-with-raspberry-pi</guid>
+      </item>
+    
+      <item>
         <title>Front Loading Your 401k Contributions</title>
         <description>
           

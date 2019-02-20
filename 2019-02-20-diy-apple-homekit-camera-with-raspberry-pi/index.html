@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>DiY Apple Homekit Camera With Raspberry Pi</title>
+
+  <meta name="author" content="&copy; Break Normal" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Break Normal - A blog about financial independence for life hackers to help them understand how smart financial decisions and relatively simple lifestyle changes can help them reduce or eliminate their dependence on a job." href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+  
+  
+    
+	  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fjalla+One:400" />
+    
+	  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic" />
+    
+  
+
+    
+  
+  
+  
+  
+  
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="DiY Apple Homekit Camera With Raspberry Pi" />
+  <meta property="og:type" content="website" />
+  
+  
+  <meta property="og:url" content="//2019-02-20-diy-apple-homekit-camera-with-raspberry-pi/" />
+  
+  
+  
+  <meta property="og:image" content="//img/avatar-icon.png" />
+  
+
+  <!-- favicons http://www.favicon-generator.org/ -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/img/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <span class="navbar-title">Break Normal</span>&nbsp;&nbsp;<span class="navbar-tagline"></span>
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+	
+        <li>
+	  <a href="/archive">Archive</a>
+	</li>
+	
+        <li>
+	  <a href="/about">About</a>
+	</li>
+	
+
+	
+	<li>
+	  <a href="/search" class="nav-search-link" title="Search">
+	    <span class="fa fa-search nav-search-icon"></span>
+	    <span class="nav-search-text">Search</span>
+	  </a>
+	</li>
+	
+      </ul>
+    </div>
+	
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="/ ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+	
+  </div>
+</nav>  
+
+
+    <div role="main" class="container main-content">
+      <header class="header-post">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="post-heading">
+        <h1>DiY Apple Homekit Camera With Raspberry Pi</h1>
+        
+        <span class="post-meta">Posted on February 20, 2019
+        by Rob
+        
+        </span>
+      </div>
+     </div>
+  </div>
+</header>
+
+<article>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="blog-post">
+	  <p>Apple Homekit products can be expensive. Instead, I purchased a tiny <a href="https://www.adafruit.com/product/3415">Raspberry Pi Zero W with a NoIR Camera</a> for $45, and wanted to turn it into something useful. I decided to try setting it up as a Homekit camera whose feed could be checked from the Apple Home app. It’s really quite simple: here are the steps I followed to get everything up and running.</p>
+
+<h1 id="preparing-the-sd-card-and-raspberry-pi-firmware">Preparing the SD card and raspberry pi firmware</h1>
+
+<ol>
+  <li>
+    <p>On my Mac laptop, I opened a terminal and downloaded the latest <a href="https://downloads.raspberrypi.org/raspbian_lite_latest">rasbian lite image</a></p>
+
+    <pre><code> wget https://downloads.raspberrypi.org/raspbian_lite_latest
+</code></pre>
+  </li>
+  <li>Use <a href="https://www.balena.io/etcher/">etcher</a> to write the image to my SD card.</li>
+  <li>Once etcher finished writing, eject and re-insert the SD card.</li>
+  <li>
+    <p>Set up wifi on the SD card so we can set up the pi without a display</p>
+
+    <pre><code> cd /Volumes/boot
+ touch ssh # turns on ssh
+ vim wpa_supplicant.conf
+</code></pre>
+  </li>
+  <li>
+    <p>Enter the following in the <code>wpa_supplicant.conf</code> file (be sure to replace YOUR_SSID and YOUR_PASSWORD according to your router settings):</p>
+
+    <pre><code> country=US
+ ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+ update_config=1
+
+ network={
+  ssid="YOUR_SSID"
+  scan_ssid=1
+  psk="YOUR_PASSWORD"
+  key_mgmt=WPA-PSK
+ }
+</code></pre>
+  </li>
+  <li>
+    <p>You also need to enable the camera in the firmware.</p>
+
+    <pre><code> vim config.txt
+</code></pre>
+  </li>
+  <li>
+    <p>Enter the following in the <code>config.txt</code> file:</p>
+
+    <pre><code> start_x=1             # essential
+ gpu_mem=256           # at least 128, or maybe more if you wish
+ #disable_camera_led=1  # optional, if you don't want the led to glow
+</code></pre>
+  </li>
+  <li>Eject the SD card from the laptop</li>
+</ol>
+
+<h1 id="preparing-the-raspberry-pi-operating-system">Preparing the Raspberry Pi operating system</h1>
+
+<ol>
+  <li>
+    <p>Insert the SD card into the pi, boot the pi and wait 30-90 seconds</p>
+  </li>
+  <li>
+    <p>Find the IP address that your router assigned to the pi. This can be done with some wifi scanning apps, or by checking your router settings (usually available at 192.168.1.1 on a machine connected to your router). In my example, the IP address for my pi is <code>192.168.1.110</code>.</p>
+  </li>
+  <li>
+    <p>Log into the pi using the default password <code>raspberry</code> and set up a new user named <code>rob</code>:</p>
+
+    <pre><code> ssh pi@192.168.1.110
+ sudo adduser rob
+ sudo visudo
+</code></pre>
+  </li>
+  <li>
+    <p>Enter the following at the end of the file:</p>
+
+    <pre><code> rob ALL=(ALL) ALL
+</code></pre>
+  </li>
+  <li>
+    <p>Then we can delete the default pi user for security reasons, and log back in with our regular user:</p>
+
+    <pre><code> sudo deluser --remove-home pi
+ logout
+ ssh rob@192.168.1.110
+</code></pre>
+  </li>
+  <li>
+    <p>Make sure the user <code>rob</code> can read the video device using the <code>sudo</code> command (i.e., add user <code>rob</code> to group <code>video</code>):</p>
+
+    <pre><code> sudo usermod -a -G video rob
+</code></pre>
+  </li>
+  <li>
+    <p>Note that you can do the following to immediately enable the correct permissions, but it won’t stick after a reboot:</p>
+
+    <pre><code> sudo chmod 777 /dev/video0
+</code></pre>
+  </li>
+  <li>
+    <p>Next install the kernel driver for the pi camera</p>
+
+    <pre><code> sudo modprobe bcm2835-v4l2
+ sudo vim.tiny /etc/modules
+</code></pre>
+  </li>
+  <li>
+    <p>Enter this into the <code>modules</code> file:</p>
+
+    <pre><code> bcm2835-v4l2
+</code></pre>
+  </li>
+  <li>
+    <p>Update the operating system and reboot so updates and kernel modules are applied:</p>
+
+    <pre><code> sudo apt-get install tmux
+ tmux
+ sudo apt-get update &amp;&amp; sudo apt-get upgrade -y
+ sudo reboot
+</code></pre>
+  </li>
+</ol>
+
+<h1 id="installing-a-stand-alone-homebridge-camera">Installing a stand-alone homebridge camera</h1>
+
+<p>We will be using <a href="https://github.com/moritzmhmk/homebridge-camera-rpi">https://github.com/moritzmhmk/homebridge-camera-rpi</a></p>
+
+<ol>
+  <li>
+    <p>Install the tools we will need for building the camera</p>
+
+    <pre><code> sudo apt-get install git make g++
+ sudo apt-get install nodejs
+ sudo apt-get install npm
+ sudo apt-get install ffmpeg
+ sudo npm install -g homebridge-camera-rpi
+</code></pre>
+  </li>
+  <li>
+    <p>Download the homebridge camera software</p>
+
+    <pre><code> cd /opt
+ sudo mkdir homebridge-camera-rpi
+ sudo chown rob:rob homebridge-camera-rpi
+ git clone https://github.com/moritzmhmk/homebridge-camera-rpi
+ cd homebridge-camera-rpi
+ npm install
+</code></pre>
+  </li>
+  <li>
+    <p>Create a service so we can easily start/stop the software:</p>
+
+    <pre><code> sudo vim.tiny /etc/systemd/system/hap-camera-rpi.service
+</code></pre>
+  </li>
+  <li>
+    <p>Enter the following into the <code>hap-camera-rpi.service</code> file:</p>
+
+    <pre><code> [Unit]
+ Description=HAP Camera RPi
+
+ [Service]
+ ExecStart=/usr/bin/node /opt/homebridge-camera-rpi/standalone.js -c /etc/homebridge-camera-rpi.conf.json
+ WorkingDirectory=/opt/homebridge-camera-rpi
+ Restart=always
+ RestartSec=10
+ User=pi
+
+ [Install]
+ WantedBy=multi-user.target
+</code></pre>
+  </li>
+  <li>
+    <p>Configure the settings for the camera software:</p>
+
+    <pre><code> sudo vim.tiny /etc/homebridge-camera-rpi.conf.json
+</code></pre>
+  </li>
+  <li>
+    <p>Enter the following into the <code>homebridge-camera-rpi.conf.json</code> file:</p>
+
+    <pre><code> {
+   "name": "Pi Camera",
+   "id": "Pi Camera",
+   "pincode": "031-45-154",
+   "username": "EC:23:3D:D3:CE:CE"
+ }
+</code></pre>
+  </li>
+  <li>
+    <p>Set the homebridge camera, and make sure it starts at boot time</p>
+
+    <pre><code> sudo systemctl start hap-camera-rpi
+ sudo systemctl enable hap-camera-rpi
+</code></pre>
+  </li>
+  <li>
+    <p>Now open the Apple Home app and add the device manually using the code <code>031-45-154</code></p>
+  </li>
+</ol>
+
+<h1 id="adjust-some-camera-settings">Adjust some camera settings</h1>
+
+<ol>
+  <li>
+    <p>I found it useful to adjust the camera settings slightly for a better picture; this can be done using the video4linux tools:</p>
+
+    <pre><code> v4l2-ctl --list-ctrls
+ v4l2-ctl --list-ctrls-menu
+ v4l2-ctl --set-ctrl brightness=60
+ v4l2-ctl --set-ctrl saturation=20
+ v4l2-ctl --set-ctrl contrast=20
+ v4l2-ctl --set-ctrl white_balance_auto_preset=9
+</code></pre>
+  </li>
+  <li>
+    <p>I found that the camera would sometimes freeze, so lets make sure it stays up by restarting the camera every night:</p>
+
+    <pre><code> sudo su
+ vim.tiny /root/reset-hap-camera.sh
+</code></pre>
+  </li>
+  <li>
+    <p>Enter the following into the <code>reset-hap-camera.sh</code> script:</p>
+
+    <pre><code> systemctl restart hap-camera-rpi
+ v4l2-ctl --set-ctrl brightness=60
+ v4l2-ctl --set-ctrl saturation=20
+ v4l2-ctl --set-ctrl contrast=20
+ v4l2-ctl --set-ctrl white_balance_auto_preset=9
+</code></pre>
+  </li>
+  <li>
+    <p>Edit the crontab for the root user to run scripts on a schedule:</p>
+
+    <pre><code> sudo su
+ crontab -e
+</code></pre>
+  </li>
+  <li>
+    <p>Append the following to run the script every night at midnight:</p>
+
+    <pre><code> 0 0 * * * /usr/bin /root/reset-hap-camera.sh
+</code></pre>
+  </li>
+</ol>
+
+<p>That’s it!</p>
+
+<p>Your device will only connect to the camera stream from the pi when you open the Apple Home app; it won’t be able to record video when it detects movement or anything fancy. Also, It doesn’t seem to work remotely; that is, you cannot view the camera stream from a device that is not connected to the same WiFi network as the camera, event if you have a home hub (HomePod, Apple TV, or iPad).</p>
+
+<p>~Rob</p>
+
+      </div>
+
+	
+	<div class="post-footer">
+	<span class="post-meta">Posted
+	
+	  in category <a href="/archive/technology">Technology</a>
+	
+	
+	  with tags
+	  
+            <a href="/archive/informational">Informational</a>,
+          
+            <a href="/archive/diy">Diy</a>,
+          
+            <a href="/archive/tutorial">Tutorial</a>
+          
+	
+	</span>
+	</div>
+	
+    </div>
+  </div>
+</article>
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="pager blog-pager">
+      
+      <li class="previous">
+        <a href="/2017-04-14-front-loading-your-401k-contributions" data-toggle="tooltip" data-placement="top" title="Front Loading Your 401k Contributions">&larr; Previous Post</a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+<div class="row disqus-comments">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'breaknormal';
+	    // ensure that pages with query string get the same discussion
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];	    
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+  </div>
+</div>
+
+
+    </div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+		  
+          <li>
+            <a href="https://twitter.com/breaknormal" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:rob@breaknormal.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+		  <li>
+			<a href="/feed.xml" title="RSS">
+			  <span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+			  </span>
+			</a>
+		  </li>
+          
+        </ul>
+        <p class="copyright text-muted">
+		  &copy; Break Normal
+		  &nbsp;&bull;&nbsp;
+		  
+          2016-2019
+          &nbsp;&bull;&nbsp;
+          All Rights Reserved
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="/">breaknormal.com</a>
+		  
+
+          
+	    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+  
+	<script src="/js/jquery-1.11.2.min.js"></script>
+  
+	<script src="/js/bootstrap.min.js"></script>
+  
+	<script src="/js/main.js"></script>
+  
+
+
+
+
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-18979348-6', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+  
+  </body>
+</html>
