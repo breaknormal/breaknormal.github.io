@@ -7,6 +7,17 @@
     <atom:link href="//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>DiY HomeKit Switch</title>
+        <description>
+          
+          I wanted to play around with smart home switches that allow you to turn on or off the power to plugged devices. However, most switches on the market are relatively expensive. Moreover, I don’t want my switch sending private data about the status of my home to any server not...
+        </description>
+        <pubDate>Thu, 27 Feb 2020 22:45:10 -0500</pubDate>
+        <link>//2020-02-27-diy-homekit-switch</link>
+        <guid isPermaLink="true">//2020-02-27-diy-homekit-switch</guid>
+      </item>
+    
+      <item>
         <title>DiY Apple Homekit Camera With Raspberry Pi</title>
         <description>
           

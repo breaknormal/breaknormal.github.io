@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>DiY HomeKit Switch</title>
+
+  <meta name="author" content="&copy; Break Normal" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Break Normal - A blog about financial independence for life hackers to help them understand how smart financial decisions and relatively simple lifestyle changes can help them reduce or eliminate their dependence on a job." href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+  
+  
+    
+	  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fjalla+One:400" />
+    
+	  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic" />
+    
+  
+
+    
+  
+  
+  
+  
+  
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="DiY HomeKit Switch" />
+  <meta property="og:type" content="website" />
+  
+  
+  <meta property="og:url" content="//2020-02-27-diy-homekit-switch/" />
+  
+  
+  
+  <meta property="og:image" content="//img/avatar-icon.png" />
+  
+
+  <!-- favicons http://www.favicon-generator.org/ -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/img/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <span class="navbar-title">Break Normal</span>&nbsp;&nbsp;<span class="navbar-tagline"></span>
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+	
+        <li>
+	  <a href="/archive">Archive</a>
+	</li>
+	
+        <li>
+	  <a href="/about">About</a>
+	</li>
+	
+
+	
+	<li>
+	  <a href="/search" class="nav-search-link" title="Search">
+	    <span class="fa fa-search nav-search-icon"></span>
+	    <span class="nav-search-text">Search</span>
+	  </a>
+	</li>
+	
+      </ul>
+    </div>
+	
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="/ ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+	
+  </div>
+</nav>  
+
+
+    <div role="main" class="container main-content">
+      <header class="header-post">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="post-heading">
+        <h1>DiY HomeKit Switch</h1>
+        
+        <span class="post-meta">Posted on February 27, 2020
+        by Rob
+        
+        </span>
+      </div>
+     </div>
+  </div>
+</header>
+
+<article>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="blog-post">
+	  <p>I wanted to play around with smart home switches that allow you to turn on or off the power to plugged devices. However, most switches on the market are relatively expensive. Moreover, I don’t want my switch sending private data about the status of my home to any server not under my control, and security and privacy does not seem to be a priority for most vendors.</p>
+
+<p>These requirements led me to the <a href="https://www.itead.cc/sonoff-wifi-wireless-switch.html">Sonoff Basic</a>, a cheap wifi switch that can be purchased for less than $5 each. Besides being cheap, the main feature that makes this switch worth considering is that you can <strong>flash custom firmware</strong> onto it in order to change the functionality (i.e., install open source switch software that does not contact servers in China like the switch does with the factory firmware).</p>
+
+<p>After moving to the iOS ecosystem, I wanted my switch to integrate into Apple’s Homekit framework. Luckily, there is some great open source firmware out there that you can flash onto the Sonoff that turns it into a Homekit switch. This tutorial explains the process I used to get things up and running.</p>
+
+<p>For the following tutorial, I am going to be using a Raspberry Pi 3B+ that was fully updated on 2019-12-29 to flash the firmware onto the Sonoff. This method allows for good control over the flashing process, and is easy to prepare. I assume you already have installed Raspbian onto the Pi. Also, you will need to have either soldered some pins onto the Sonoff, or be ready to hold your pin headers in place during the flashing process.</p>
+
+<p>Let’s get started!</p>
+
+<p>~Rob</p>
+
+<h1 id="set-up-the-raspberry-pi-software-environment">Set up the Raspberry PI software environment</h1>
+
+<ol>
+  <li>
+    <p>Configure raspbian to boot into the CLI rather than the GUI (not necessary but reduces the number of processes running in the background).</p>
+
+    <pre><code> sudo raspi-config
+ sudo reboot
+</code></pre>
+  </li>
+  <li>
+    <p>Make sure raspbian is up to date.</p>
+
+    <pre><code> sudo apt-get update
+ sudo apt-get upgrade
+ sudo reboot
+</code></pre>
+  </li>
+  <li>
+    <p>We need to prepare the Pi GPIO serial interface so we can use it to flash the sonoff rather than using it as a console. More details about how the Pi handles the interfaces is <a href="https://spellfoundry.com/2016/05/29/configuring-gpio-serial-port-raspbian-jessie-including-pi-3-4/">here</a>.</p>
+
+    <p>On the Pi 3, <code>/dev/ttyAMA0</code> is a hardware serial port mapped to bluetooth and <code>/dev/ttyS0</code> is mapped to a serial communications interface. These are mapped as follows.</p>
+
+    <pre><code> /dev/serial0 --&gt; /dev/ttyS0 (GPIO serial port)
+ /dev/serial1 --&gt; /dev/ttyAMA0 (Bluetooth)
+</code></pre>
+
+    <p>However, serial0 is disabled by default. We need to enable it.</p>
+
+    <pre><code> TERM='vt220' # due to bug in console
+ sudo cp /boot/config.txt /boot/config.txt.backup
+ sudo nano /boot/config.txt # append "enable_uart=1"
+</code></pre>
+
+    <p>We also need to change the serial port so that it is not used for console login, that way we can use it for flashing.</p>
+
+    <pre><code> sudo cp /boot/cmdline.txt /boot/cmdline.txt.backup
+ sudo nano /boot/cmdline.txt # remove "console=serial0,115200" option
+</code></pre>
+
+    <p>And disable the serial console service.</p>
+
+    <pre><code> sudo systemctl stop serial-getty@ttyS0.service
+ sudo systemctl disable serial-getty@ttyS0.service
+</code></pre>
+
+    <p>Make sure the changes take effect.</p>
+
+    <pre><code> sudo reboot
+</code></pre>
+
+    <p>Double check that <code>/dev/serial0 -&gt; ttyS0</code> is set up correctly.</p>
+
+    <pre><code> ls -l /dev/serial*
+</code></pre>
+  </li>
+</ol>
+
+<h1 id="prepare-to-flash-the-sonoff">Prepare to flash the Sonoff</h1>
+
+<ol>
+  <li>
+    <p>Get ready for flashing the new firmware by installing the flashing tool.</p>
+
+    <pre><code> TERM='vt220' # due to bug in console
+ sudo apt-get install python-pip
+ sudo pip install esptool
+</code></pre>
+  </li>
+  <li>
+    <p>Collect the new firmware files.</p>
+
+    <pre><code> wget https://github.com/HomeACcessoryKid/life-cycle-manager/releases/download/1.0.0/otaboot.bin
+ wget https://github.com/SuperHouse/esp-open-rtos/raw/master/bootloader/firmware_prebuilt/rboot.bin
+ wget https://github.com/SuperHouse/esp-open-rtos/raw/master/bootloader/firmware_prebuilt/blank_config.bin
+</code></pre>
+  </li>
+</ol>
+
+<h1 id="flash-the-firmware-for-the-life-cycle-manager-lcm">Flash the firmware for the Life Cycle Manager (LCM)</h1>
+
+<p>You will flash the Life Cycle manager (LCM) in order to install the Homekit firware and manage OTA updates over-the-air.</p>
+
+<table>
+<tr>
+<td>
+<table>
+  <tr>
+    <th>Rasp. Pi</th>
+    <th>Sonoff</th>
+  </tr>
+  <tr>
+    <td>Pin 1 (3.3V)</td>
+    <td>Pin 1 (3.3V)</td>
+  </tr>
+  <tr>
+    <td>Pin 8 (TXD)</td>
+    <td>Pin 2 (RXD)</td>
+  </tr>
+  <tr>
+    <td>Pin 10 (RXD)</td>
+    <td>Pin 3 (TXD)</td>
+  </tr>
+  <tr>
+    <td>Pin 25 or 39 (GND)</td>
+    <td>Pin 4 (GND)</td>
+  </tr>
+  <caption>Table 1: Raspberry Pi to Sonoff pin connections</caption>
+</table>
+</td>
+<td>
+<a href="/img/2020/pi-lg.png"><img src="/img/2020/pi-sm.png" alt="pi" width="400" /></a>
+<div class="caption">Figure 1: Raspberry Pi (left) and Sonoff (right)</div>
+</td>
+</tr>
+</table>
+
+<ol>
+  <li>
+    <p>Make all connections from the RPi to the Sonoff <strong>except the 3.3v power</strong>. The transaction and receive pins should be reversed so the Pi receives what the Sonoff sends, and the Sonoff receives what the Pi sends.</p>
+  </li>
+  <li>
+    <p>Boot the Sonoff into flash mode by holding the Sonoff button while connecting the 3.3V power wire, and then erase the flash memory.</p>
+
+    <pre><code> esptool.py --port /dev/serial0 erase_flash
+</code></pre>
+  </li>
+  <li>
+    <p>Boot the Sonoff into flash mode by holding the Sonoff button while connecting the 3.3V power wire, and then write the new firmware into flash memory.</p>
+
+    <pre><code> esptool.py -p /dev/serial0 --baud 115200 write_flash -fs 1MB -fm dout -ff 40m 0x0 rboot.bin 0x1000 blank_config.bin 0x2000 otaboot.bin
+</code></pre>
+  </li>
+  <li>
+    <p>We now have the lifecycle manager firmware installed on the Sonoff, which will allow us to install our switch firmware over-the-air.</p>
+  </li>
+</ol>
+
+<h1 id="install-the-home-accessory-architect-haa">Install the Home Accessory Architect (HAA)</h1>
+
+<p>You will connect power and Internet, and install the Home Accessory Architect (HAA) over-the-air in order to enable Homekit support.</p>
+
+<ol>
+  <li>
+    <p>Splice an extension cord or other power source and connect the leads to the Sonoff (make sure to follow the electrical limits of the Sonoff).</p>
+  </li>
+  <li>
+    <p>Power the Sonoff by plugging in the extension cord.</p>
+  </li>
+  <li>
+    <p>Connect a device (phone, laptop, etc.) to wifi access point <code>LCM-xxxxxx</code> (xxxxxx is the last 6 of the mac address).</p>
+  </li>
+  <li>
+    <p>Select your SSID and enter your password so that the Sonoff can connect to the Internet.</p>
+  </li>
+  <li>
+    <p>Enter the ota repo: <code>RavenSystem/haa</code>, and ota binary: <code>main.bin</code>.</p>
+  </li>
+  <li>
+    <p>Wait 10 minutes for the new firmware to download and flash.</p>
+  </li>
+  <li>
+    <p>For more details, <a href="https://github.com/RavenSystem/esp-homekit-devices/wiki/Installation">see this wiki page</a>.</p>
+  </li>
+</ol>
+
+<h1 id="configure-the-home-accessory-architect-haa">Configure the Home Accessory Architect (HAA)</h1>
+
+<ol>
+  <li>
+    <p>Once the Sonoff is updated and rebooted, press the button on the Sonoff 8 times to enter setup mode mode.</p>
+  </li>
+  <li>
+    <p>Find the IP address of the Sonoff in your router, it should be <code>HAA-xxxxxx</code> (xxxxxx is the last 6 of the mac address).</p>
+  </li>
+  <li>
+    <p>Visit your Sonoff IP address in a web browser and enter the following JSON config (this config was generated for the Sonoff Basic using the <a href="https://github.com/glumb/haa-configurator">configurator tool</a>, if you have a different type of Sonoff you might need to adjust).</p>
+
+    <pre><code> {"c":{"l":13,"b":[{"g":0,"t":5}]},"a":[{"0":{"r":[{"g":12}]},"1":{"r":[{"g":12,"v":1}]},"b":[{"g":0}],"s":0}]}
+</code></pre>
+  </li>
+  <li>
+    <p>After clicking save, the Sonoff should leave setup mode, so if you reload the web browser you will find that the Sonoff is not serving the setup page anymore.</p>
+  </li>
+  <li>
+    <p>For more details, <a href="https://github.com/RavenSystem/esp-homekit-devices/wiki/Setup-Mode">see this wiki page</a>.</p>
+  </li>
+</ol>
+
+<h1 id="add-the-device-to-the-home-app">Add the device to the Home app</h1>
+
+<ol>
+  <li>
+    <p>Open the Home app on iOS and add a new device by either scanning the barcode below or using the code <code>021-82-017</code>.<br /><img src="/img/2020/sonoff_homekit_barcode.png" alt="" /><br /><em>Figure 2: Scan this barcode with the iOS Home app to add your Sonoff switch</em>.</p>
+  </li>
+  <li>
+    <p>The new switch should be added shortly.</p>
+  </li>
+  <li>
+    <p>For more details, <a href="https://github.com/RavenSystem/esp-homekit-devices/wiki/Installation#homekit-setup">see this wiki page</a>.</p>
+  </li>
+</ol>
+
+<h1 id="manually-performing-an-ota-update">Manually performing an OTA update</h1>
+
+<ol>
+  <li>
+    <p>Put the Sonoff into setup mode by quickly toggling the physical switch button or the switch in the home app 8 times in a row.</p>
+  </li>
+  <li>
+    <p>Use a web browser to connect a device (phone, laptop, etc.) to either the IP address or hostname <code>HAA-xxxxxx</code> of the Sonoff.</p>
+  </li>
+  <li>
+    <p>Check the OTA update checkbox and click save. The device will download and install the latest firmware automatically.</p>
+  </li>
+</ol>
+
+<h1 id="done">Done!</h1>
+
+      </div>
+
+	
+	<div class="post-footer">
+	<span class="post-meta">Posted
+	
+	  in category <a href="/archive/technology">Technology</a>
+	
+	
+	  with tags
+	  
+            <a href="/archive/informational">Informational</a>,
+          
+            <a href="/archive/tutorial">Tutorial</a>,
+          
+            <a href="/archive/diy">Diy</a>
+          
+	
+	</span>
+	</div>
+	
+    </div>
+  </div>
+</article>
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="pager blog-pager">
+      
+      <li class="previous">
+        <a href="/2019-02-20-diy-apple-homekit-camera-with-raspberry-pi" data-toggle="tooltip" data-placement="top" title="DiY Apple Homekit Camera With Raspberry Pi">&larr; Previous Post</a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+<div class="row disqus-comments">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'breaknormal';
+	    // ensure that pages with query string get the same discussion
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];	    
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+  </div>
+</div>
+
+
+    </div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+		  
+          <li>
+            <a href="https://twitter.com/breaknormal" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:rob@breaknormal.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+		  <li>
+			<a href="/feed.xml" title="RSS">
+			  <span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+			  </span>
+			</a>
+		  </li>
+          
+        </ul>
+        <p class="copyright text-muted">
+		  &copy; Break Normal
+		  &nbsp;&bull;&nbsp;
+		  
+          2016-2020
+          &nbsp;&bull;&nbsp;
+          All Rights Reserved
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="/">breaknormal.com</a>
+		  
+
+          
+	    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+  
+	<script src="/js/jquery-1.11.2.min.js"></script>
+  
+	<script src="/js/bootstrap.min.js"></script>
+  
+	<script src="/js/main.js"></script>
+  
+
+
+
+
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-18979348-6', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+  
+  </body>
+</html>

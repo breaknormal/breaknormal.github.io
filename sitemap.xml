@@ -1,26 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>//2019-02-20-diy-apple-homekit-camera-with-raspberry-pi</loc>
-    <lastmod>2019-02-20T17:28:51-05:00</lastmod>
-  </url>
-  <url>
-    <loc>//2017-04-14-front-loading-your-401k-contributions</loc>
-    <lastmod>2017-04-14T21:28:05-04:00</lastmod>
-  </url>
-  <url>
-    <loc>//404.html</loc>
-  </url>
-  <url>
-    <loc>//archive/</loc>
-  </url>
-  <url>
-    <loc>//</loc>
-  </url>
-  <url>
-    <loc>//about/</loc>
-  </url>
-  <url>
-    <loc>//search/</loc>
-  </url>
+<url>
+<loc>//2020-02-27-diy-homekit-switch</loc>
+<lastmod>2020-02-27T22:45:10-05:00</lastmod>
+</url>
+<url>
+<loc>//2019-02-20-diy-apple-homekit-camera-with-raspberry-pi</loc>
+<lastmod>2019-02-20T17:28:51-05:00</lastmod>
+</url>
+<url>
+<loc>//2017-04-14-front-loading-your-401k-contributions</loc>
+<lastmod>2017-04-14T21:28:05-04:00</lastmod>
+</url>
+<url>
+<loc>//404.html</loc>
+</url>
+<url>
+<loc>//</loc>
+</url>
+<url>
+<loc>//archive/</loc>
+</url>
+<url>
+<loc>//about/</loc>
+</url>
+<url>
+<loc>//search/</loc>
+</url>
+<url>
+<loc>//archive/investing/</loc>
+</url>
+<url>
+<loc>//archive/informational/</loc>
+</url>
+<url>
+<loc>//archive/diy/</loc>
+</url>
+<url>
+<loc>//archive/tutorial/</loc>
+</url>
+<url>
+<loc>//archive/finance/</loc>
+</url>
+<url>
+<loc>//archive/technology/</loc>
+</url>
+<url>
+<loc>//archive/2017/</loc>
+</url>
+<url>
+<loc>//archive/2019/</loc>
+</url>
+<url>
+<loc>//archive/2020/</loc>
+</url>
 </urlset>
